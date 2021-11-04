@@ -67,6 +67,7 @@ class App extends React.Component {
       if(listOfDoors[index].src === doorImage.robot){
         console.log('Viel Spaß beim Putzen!');
         this.gameOver();
+        this.setState({currentlyPlaying: false});
       }
     }
   }
@@ -105,7 +106,7 @@ class App extends React.Component {
       this.setState({currentlyPlaying: false, startButtonText: 'Gewonnen! Erneut spielen?'});
     } else {
       this.countLosses();
-      this.setState({currentlyPlaying: false, startButtonText: 'Game Over! Erneut spielen?'});
+      this.setState({startButtonText: 'Game Over! Erneut spielen?'});
     }
   }
 
@@ -148,14 +149,14 @@ class App extends React.Component {
     return (
       <div>
         <Navigation />
-        <DoorGame 
+        <DoorGame
           doors={this.state.doors}
           currentlyPlaying={this.state.currentlyPlaying}
-          openDoorLogic={this.openDoor} 
-          checkIfGameOver={this.gameOver} 
+          openDoorLogic={this.openDoor}
+          checkIfGameOver={this.gameOver}
           checkForRobot={this.checkForRobot}/>
-        <GameButton 
-          buttonText={this.state.startButtonText} 
+        <GameButton
+          buttonText={this.state.startButtonText}
           currentlyPlaying={this.state.currentlyPlaying}
           startGame={this.handleGameConfigurations} />
       </div>
