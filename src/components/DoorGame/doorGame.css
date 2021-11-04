@@ -1,0 +1,8 @@
+.door-row {
+    text-align: center;
+  }
+
+  .door-frame {
+    cursor: pointer;
+    padding: 10px;
+  }
