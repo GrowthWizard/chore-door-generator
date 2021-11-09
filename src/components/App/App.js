@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import Navigation from '../Navigation/navigation';
+import Score from '../Score/Score';
 import DoorGame from '../DoorGame/doorGame';
 import GameButton from '../GameButton/gameButton';
 
@@ -111,15 +112,23 @@ class App extends React.Component {
   }
 
   countWins(){
+    if(this.state.currentlyPlaying){
     let numberOfWins = this.state.wins;
     numberOfWins++;
     this.setState({wins: numberOfWins});
+    } else {
+      return;
+    }
   }
 
   countLosses(){
+    if(this.state.currentlyPlaying){ 
     let numberOfLosses = this.state.losses;
     numberOfLosses++;
     this.setState({losses: numberOfLosses});
+    } else {
+      return;
+    }
   }
 
   closeDoors() {
@@ -149,6 +158,7 @@ class App extends React.Component {
     return (
       <div>
         <Navigation />
+        <Score winCount={this.state.wins} lossCount={this.state.losses}/>
         <DoorGame
           doors={this.state.doors}
           currentlyPlaying={this.state.currentlyPlaying}

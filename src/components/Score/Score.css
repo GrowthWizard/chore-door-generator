@@ -1,0 +1,11 @@
+.score {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.score > * {
+    padding: 5px;
+}
